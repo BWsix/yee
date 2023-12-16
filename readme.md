@@ -225,7 +225,7 @@ c       0.000218
 ```
 
 That's about it! Hope our medieval mathematician friends can learn something
-from this random github repo. It took me a long time writing all this shites.
+from this report.
 
 ## Quick Start
 

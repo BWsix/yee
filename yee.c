@@ -43,7 +43,7 @@ void method_b(void) {
 
 void method_c(void) {
   size_t ITERATION_CAP = 1000;
-  double EPSILON = 10e-15;
+  double EPSILON = 10e-7;
 
   double e = 0.f;
   double prev_e = 0.f;

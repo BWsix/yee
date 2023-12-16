@@ -56,6 +56,9 @@ for (; area < 1.f; x += delta_x) {
 float e = x;
 ```
 
+It would be nice to further optimize the code, but the approximation is already
+close enough (7 decimal digits to be exact), so I decided to leave it like that.
+
 ### Performace
 
 It takes us 10 million iterations just to get an estimation of 𝑒 with 7 decimal
@@ -123,8 +126,8 @@ float e = pow(1.f + 1.f / n, n);
 ```
 
 Surprisingly, the function `pow()` introduces small errors when n is larger than
-10e6. So the program above in theory should give us 2.7182818, gave 2.7182817
-instead.
+10e6. So, in theory, the program above should give us 2.7182818, but it actually
+gives 2.7182817 instead.
 
 ### Performace
 
@@ -144,6 +147,9 @@ is less than our target precision.
 ### Implementation
 
 ```c
+size_t ITERATION_CAP = 1000;
+double EPSILON = 10e-7;
+
 double e = 0.f;
 double prev_e = 0.f;
 double one_over_factorial = 1.f;
@@ -170,7 +176,7 @@ precisions! I wonder if we can go even further with method c...
 With python's builtin `decimal` module, I wrote a script and found that the
 precision of our approximation of e grows steadily with each iteration. In fact,
 it's even possible to get a precision of 1 million decimal digits with 200k
-iterations. The graph below help illustrat the relation between the number of
+iterations. The graph below help illustrate the relation between the number of
 iteration(x axis) and number of decimalprecision (y axis):
 
 ![1 mil decimal precision](./assets/1mil_decimal_precision.png)

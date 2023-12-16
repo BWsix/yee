@@ -1,0 +1,18 @@
+*
+
+# MISC
+!.gitignore
+!readme.md
+!assets
+!assets/*
+!method_c.1mil.txt
+
+# C
+!yee.c
+!build.sh
+!CMakeLists.txt
+
+# Python
+!yee.py
+!e.1mil.txt
+
